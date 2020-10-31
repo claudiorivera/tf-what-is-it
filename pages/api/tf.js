@@ -1,3 +1,4 @@
+require("@tensorflow/tfjs");
 import * as tfnode from "@tensorflow/tfjs-node";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 
