@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { useState } from "react";
 
-const apiUrl = "/api/tf";
+const apiUrl = "https://tf-what-is-it-server.herokuapp.com/tf";
 
 const IndexPage = () => {
   const [fileInput] = useState("");
