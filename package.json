@@ -1,5 +1,5 @@
 {
-  "name": "with-tailwindcss",
+  "name": "tf-what-is-it",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -7,9 +7,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@tensorflow-models/mobilenet": "^2.0.4",
-    "@tensorflow/tfjs": "^2.7.0",
-    "@tensorflow/tfjs-node": "^2.7.0",
     "axios": "^0.21.0",
     "next": "latest",
     "react": "^16.13.1",

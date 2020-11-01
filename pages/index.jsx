@@ -1,11 +1,13 @@
 import Axios from "axios";
 import { useState } from "react";
 
+const apiUrl = "http://localhost:5000/tf";
+
 const IndexPage = () => {
   const [fileInput] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
   const [previewSource, setPreviewSource] = useState("");
   const [results, setResults] = useState("");
-  const [isFetching, setIsFetching] = useState(false);
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
@@ -30,7 +32,9 @@ const IndexPage = () => {
     try {
       setIsFetching(true);
       setResults("");
-      const response = await Axios.post("/api/tf", { image });
+      const response = await Axios.post(apiUrl, {
+        image,
+      });
       setResults(response.data);
       setIsFetching(false);
     } catch (error) {
@@ -44,21 +48,20 @@ const IndexPage = () => {
         What in the world is that thing?
       </div>
       <form
-        name="image-form"
-        // onSubmit={handleSubmitFile}
         className="flex flex-col justify-items-center container mx-auto max-w-sm"
+        name="image-form"
       >
         <label htmlFor="image-picker">
           <div className="text-white font-bold py-2 px-4 rounded m-2 bg-accent-1 cursor-pointer">
             Select An Image
           </div>
           <input
+            accept="image/*"
             className="hidden"
             id="image-picker"
             name="image-picker"
-            type="file"
-            accent="image/*"
             onChange={handleFileInputChange}
+            type="file"
             value={fileInput}
           />
         </label>
@@ -67,13 +70,13 @@ const IndexPage = () => {
         <div className="m-5">
           <img className="mx-auto max-w-xs" src={previewSource} />
           <button
-            onClick={handleSubmitFile}
-            form="image-form"
             className={`${
               isFetching ? "bg-gray-500" : "bg-accent-1"
             } text-white font-bold py-2 px-4 rounded m-5`}
-            type="submit"
             disabled={isFetching}
+            form="image-form"
+            onClick={handleSubmitFile}
+            type="submit"
           >
             {isFetching ? "Please wait..." : "Submit Photo"}
           </button>
