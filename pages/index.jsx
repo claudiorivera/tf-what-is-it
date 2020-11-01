@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { useState } from "react";
 
-const apiUrl = "http://localhost:5000/tf";
+const apiUrl = "/api/tf";
 
 const IndexPage = () => {
   const [fileInput] = useState("");
