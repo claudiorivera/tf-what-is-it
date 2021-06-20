@@ -1,8 +1,5 @@
-@tailwind base;
-
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
-/* Write your own custom base styles here */
 .center {
   margin: 0 auto;
   text-align: center;
@@ -11,17 +8,3 @@
 .title {
   font-family: "Staatliches", sans-serif;
 }
-
-/* Start purging... */
-@tailwind components;
-
-/* Stop purging. */
-
-/* Write your own custom component styles here */
-
-/* Start purging... */
-@tailwind utilities;
-
-/* Stop purging. */
-
-/* Your own custom utilities */

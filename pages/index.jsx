@@ -1,4 +1,5 @@
 import Axios from "axios";
+import Image from "next/image";
 import { useState } from "react";
 
 const apiUrl = "https://tf-what-is-it-server.herokuapp.com/tf";
@@ -43,16 +44,14 @@ const IndexPage = () => {
   };
 
   return (
-    <div className="center font-thin">
-      <div className="text-5xl my-8 title">
-        What in the world is that thing?
-      </div>
+    <div className="text-center font-thin">
+      <div className="text-5xl my-8">What in the world is that thing?</div>
       <form
         className="flex flex-col justify-items-center container mx-auto max-w-sm"
         name="image-form"
       >
         <label htmlFor="image-picker">
-          <div className="text-white font-bold py-2 px-4 rounded m-2 bg-accent-1 cursor-pointer">
+          <div className="m-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 md:py-4 md:text-lg cursor-pointer md:px-10">
             Select An Image
           </div>
           <input
@@ -67,12 +66,16 @@ const IndexPage = () => {
         </label>
       </form>
       {previewSource && (
-        <div className="m-5">
-          <img className="mx-auto max-w-xs" src={previewSource} />
+        <div className="m-auto flex justify-center flex-col max-w-sm">
+          <Image
+            className="mx-auto max-w-xs"
+            src={previewSource}
+            alt="Image preview"
+            height={400}
+            width={400}
+          />
           <button
-            className={`${
-              isFetching ? "bg-gray-500" : "bg-accent-1"
-            } text-white font-bold py-2 px-4 rounded m-5`}
+            className="m-3 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 md:py-4 md:text-lg cursor-pointer md:px-10"
             disabled={isFetching}
             form="image-form"
             onClick={handleSubmitFile}
