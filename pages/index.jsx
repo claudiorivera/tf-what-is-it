@@ -2,7 +2,7 @@ import Axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
 
-const apiUrl = "https://tf-what-is-it-server.herokuapp.com/tf";
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const IndexPage = () => {
   const [fileInput] = useState("");
